@@ -163,12 +163,12 @@ html {
 
 /* SOCIAL BTN */
 
-.main-area .social-btn{ padding: 20px; position: relative;  width: 100%; left: 50%; transform: translateX(-50%); }
+.main-area .social-btn{ padding: 10px; position: relative;  width: 100%; left: 50%; transform: translateX(-50%); }
 
 
 .main-area .social-btn .list-heading{ display: block; margin-bottom: 15px; }
 
-.main-area .social-btn > li > a > i{ display: inline-block; height: 70px; width: 70px; line-height: 70px; border-radius: 80px;
+.main-area .social-btn > li > a > i{ display: inline-block; height: 60px; width: 60px; line-height: 60px; border-radius: 60px;
 	font-size: 2.08em; margin: 0 10px; }
 
 .main-area .social-btn > li > a > i:hover{ background: #fff!important; }	

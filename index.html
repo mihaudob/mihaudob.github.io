@@ -5,10 +5,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="UTF-8">
-		
+		<meta name="theme-color" content="#96b3bc"/>
+
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CPoppins:400,500" rel="stylesheet">	
 		<link href="css/ionicons.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/jquery.classycountdown.css" />	
+		<link rel="stylesheet" href="css/jquery.classycountdown.css" /><link rel="manifest" href="/manifest.json">
+
 		<link href="css/styles.css" rel="stylesheet">
 		<link href="css/responsive.css" rel="stylesheet">
 		
@@ -49,11 +51,22 @@
 		
 		<!-- SCIPTS -->
 		
-		<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/jquery-3.1.1.min.js"  async></script>
 		
-		<script src="js/jquery.countdown.min.js"></script>
+		<script src="js/jquery.countdown.min.js"  async></script>
 		
-		<script src="js/scripts.js"></script>
-		
+		<script src="js/scripts.js"  async></script>
+
+		<script  async>
+			if ('serviceWorker' in navigator) {
+			    console.log("Will the service worker register?");
+			    navigator.serviceWorker.register('service-worker.js')
+			    	.then(function(reg){
+			        console.log("Yes, it did.");
+			    }).catch(function(err) {
+			    	console.log("No it didn't. This happened: ", err)
+			    });
+			}
+		</script>
 	</body>
 </html>

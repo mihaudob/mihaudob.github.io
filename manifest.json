@@ -1,0 +1,20 @@
+{
+  "short_name": "MD",
+  "name": "Michał Dobiecki",
+  "icons": [
+    {
+      "src":"images/green-pattern-surface3.jpg",
+      "sizes": "144x144",
+      "type": "image/jpg"
+    },
+    {
+      "src": "images/green-pattern-surface3.jpg",
+      "sizes": "192x192",
+      "type": "image/jpg"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#000",
+  "Theme_color": "#536878",
+  "display": "fullscreen"
+}
