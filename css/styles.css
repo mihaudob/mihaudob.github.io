@@ -120,12 +120,12 @@ html {
 	box-shadow: 2px 5px 30px rgba(0,0,0,.1); color: #fff; }
 
 .main-area:after{ content:''; position: absolute; top: 0; bottom: 0;left: 0; right: 0; z-index: -1;  
-	opacity: .7; background: linear-gradient(-9deg, #a82fb 0%, #6a82fb 40%, #fc5c7d 100%); }
+	opacity: .7; background: linear-gradient(-9deg, #ba2f87 0%, #6a82fb 40%, #fc5c7d 100%); }
 
 .main-area .desc{ margin: 20px auto; max-width: 500px; }
 	
 .main-area .notify-btn{ margin: 20px 0; padding: 13px 35px; border-radius: 50px; border: 2px solid #F84982;
-	color: #fff; background: #F84982; }
+	color: #000000; background: #F84982; }
 
 .main-area .notify-btn:hover{ background: none; }
 
