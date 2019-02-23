@@ -1,69 +1,76 @@
-const CACHE_NAME = 'mineWebsite';
-const CACHED_FILES = [
+// service-worker.js
+
+var cacheName = 'mineWebsite';
+var filesToCache = [
     '/index.html',
     '/css/styles.css',
     '/images/logo.png',
-    '/scripts/main.js'
+    '/scripts/scripts.js'
 ];
-
-const console = (({ log, error }, label) => ({
-    // Enable logs
-    // log: (...args) => log(`%c${label}`, 'color: purple', ...args),
-    // error: (...args) => error(label, ...args)
-
-    // Disable logs
-    log: () => null,
-    error: () => null
-}))(self.console, '[Service Worker]');
-
-self.addEventListener('install', (evt) => {
-    console.log('Event: install', { evt });
-    evt.waitUntil(handleInstall());
+self.addEventListener('install', function(event) {
+    event.waitUntil(
+        caches.open(cacheName)
+        .then(function(cache) {
+            console.info('[service-worker.js] cached all files');
+            return cache.addAll(filesToCache);
+        })
+    );
 });
 
-async function handleInstall() {
-    const cache = await caches.open(CACHE_NAME);
-    await cache.addAll(CACHED_FILES);
-    return self.skipWaiting();
-}
+self.addEventListener('fetch', function(event) {
+    event.respondWith(
+        caches.match(event.request)
+        .then(function(response) {
+            if(response){
+                return response
+            }
+            else{
+                // clone request stream
+                // as stream once consumed, can not be used again
+                var reqCopy = event.request.clone();
+                
+                return fetch(reqCopy, {credentials: 'include'}) // reqCopy stream consumed
+                .then(function(response) {
+                    // bad response
+                    // response.type !== 'basic' means third party origin request
+                    if(!response || response.status !== 200 || response.type !== 'basic') {
+                        return response; // response stream consumed
+                    }
 
-self.addEventListener('activate', (evt) => {
-    console.log('Event: activate', { evt });
-    evt.waitUntil(handleActivate());
+                    // clone response stream
+                    // as stream once consumed, can not be used again
+                    var resCopy = response.clone();
+
+
+                    // ================== IN BACKGROUND ===================== //
+
+                    // add response to cache and return response
+                    caches.open(cacheName)
+                    .then(function(cache) {
+                        return cache.put(reqCopy, resCopy); // reqCopy, resCopy streams consumed
+                    });
+
+                    // ====================================================== //
+
+
+                    return response; // response stream consumed
+                })
+            }
+        })
+    );
 });
 
-async function handleActivate() {
-    const keys = await caches.keys();
-    return await Promise.all(keys
-        .filter((key) => key !== CACHE_NAME)
-        .map((key) => caches.delete(key)));
-}
-
-function isForeignRequest(url) {
-    const regexp = new RegExp(self.origin, 'i');
-    return !regexp.test(url);
-}
-
-self.addEventListener('fetch', (evt) => {
-    console.log('Event: fetch', { evt });
-
-    if (isForeignRequest(evt.request.url)) {
-        return;
-    }
-
-    evt.respondWith(handleFetch(evt));
+self.addEventListener('activate', function(event) {
+    event.waitUntil(
+        caches.keys()
+        .then(function(cacheNames) {
+            return Promise.all(
+                cacheNames.map(function(cName) {
+                    if(cName !== cacheName){
+                        return caches.delete(cName);
+                    }
+                })
+            );
+        })
+    );
 });
-
-async function handleFetch(evt) {
-    const request = evt.request;
-    const cache = await caches.open(CACHE_NAME);
-    const resource = await cache.match(request);
-
-    if (resource) {
-        return resource;
-    }
-
-    const response = await fetch(request.clone());
-    await cache.put(request, response.clone());
-    return response;
-}
