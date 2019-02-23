@@ -1,76 +1,59 @@
 // service-worker.js
 
-var cacheName = 'mineWebsite';
-var filesToCache = [
+const PRECACHE = 'mineWebsite';
+const RUNTIME = 'runtime';
+
+// A list of local resources we always want to be cached.
+const PRECACHE_URLS = [
     '/index.html',
     '/css/styles.css',
     '/images/logo.png',
     '/scripts/scripts.js'
 ];
-self.addEventListener('install', function(event) {
-    event.waitUntil(
-        caches.open(cacheName)
-        .then(function(cache) {
-            console.info('[service-worker.js] cached all files');
-            return cache.addAll(filesToCache);
-        })
-    );
+// The install handler takes care of precaching the resources we always need.
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(PRECACHE)
+      .then(cache => cache.addAll(PRECACHE_URLS))
+      .then(self.skipWaiting())
+  );
 });
 
-self.addEventListener('fetch', function(event) {
+// The activate handler takes care of cleaning up old caches.
+self.addEventListener('activate', event => {
+  const currentCaches = [PRECACHE, RUNTIME];
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
+    }).then(cachesToDelete => {
+      return Promise.all(cachesToDelete.map(cacheToDelete => {
+        return caches.delete(cacheToDelete);
+      }));
+    }).then(() => self.clients.claim())
+  );
+});
+
+// The fetch handler serves responses for same-origin resources from a cache.
+// If no response is found, it populates the runtime cache with the response
+// from the network before returning it to the page.
+self.addEventListener('fetch', event => {
+  // Skip cross-origin requests, like those for Google Analytics.
+  if (event.request.url.startsWith(self.location.origin)) {
     event.respondWith(
-        caches.match(event.request)
-        .then(function(response) {
-            if(response){
-                return response
-            }
-            else{
-                // clone request stream
-                // as stream once consumed, can not be used again
-                var reqCopy = event.request.clone();
-                
-                return fetch(reqCopy, {credentials: 'include'}) // reqCopy stream consumed
-                .then(function(response) {
-                    // bad response
-                    // response.type !== 'basic' means third party origin request
-                    if(!response || response.status !== 200 || response.type !== 'basic') {
-                        return response; // response stream consumed
-                    }
+      caches.match(event.request).then(cachedResponse => {
+        if (cachedResponse) {
+          return cachedResponse;
+        }
 
-                    // clone response stream
-                    // as stream once consumed, can not be used again
-                    var resCopy = response.clone();
-
-
-                    // ================== IN BACKGROUND ===================== //
-
-                    // add response to cache and return response
-                    caches.open(cacheName)
-                    .then(function(cache) {
-                        return cache.put(reqCopy, resCopy); // reqCopy, resCopy streams consumed
-                    });
-
-                    // ====================================================== //
-
-
-                    return response; // response stream consumed
-                })
-            }
-        })
+        return caches.open(RUNTIME).then(cache => {
+          return fetch(event.request).then(response => {
+            // Put a copy of the response in the runtime cache.
+            return cache.put(event.request, response.clone()).then(() => {
+              return response;
+            });
+          });
+        });
+      })
     );
-});
-
-self.addEventListener('activate', function(event) {
-    event.waitUntil(
-        caches.keys()
-        .then(function(cacheNames) {
-            return Promise.all(
-                cacheNames.map(function(cName) {
-                    if(cName !== cacheName){
-                        return caches.delete(cName);
-                    }
-                })
-            );
-        })
-    );
+  }
 });
