@@ -14,6 +14,9 @@
 		<link href="css/styles.css" rel="stylesheet">
 		<link href="css/responsive.css" rel="stylesheet">
 		
+		<link rel="shortcut icon" href="images/favicon.ico">
+		<link rel="icon" type="image/gif" href="images/animated_favicon1.gif">
+	
 	</head>
 	<body>
 		<div class="main-area center-text" style="background-image:url(images/green-pattern-surface3.jpg);" >
@@ -23,7 +26,7 @@
 					
 					<h1 class="title"><b>Michał Dobiecki</b></h1>
 					
-					<p class="desc font-white">Welcome! My online history .. </p>
+					<p class="desc font-white">Welcome! My online history ... </p>
 					<!-- 
 					<div class="email-input-area">
 						<form method="post">
@@ -56,7 +59,7 @@
 		<script src="js/jquery.countdown.min.js"  ></script>
 		
 		<script src="js/scripts.js" ></script>
-
+<!--
 		<script src="js/service-worker.js" ></script>
 
 		<script >
@@ -70,5 +73,13 @@
 	  		});
 			}
 		</script>
+-->
+		<script src="/upup.min.js"></script>
+		<script>
+    		UpUp.start({
+      		'content-url': 'index.html',
+      		'assets': [ '/css/styles.css', '/images/logo.png', '/scripts/scripts.js']
+    		});
+  		</script>
 	</body>
 </html>
