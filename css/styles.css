@@ -52,7 +52,7 @@ a, button{ display: inline-block; text-decoration: none; color: inherit; transit
 
 a:focus, a:active, a:hover,
 button:focus, button:active, button:hover,
-a b.light-color:hover{ text-decoration: none; color: #3F9A91; }
+a b.light-color:hover{ text-decoration: none; color: #D2FBD1; }
 
 b{ font-weight: 500; }
 
@@ -120,7 +120,7 @@ html {
 	box-shadow: 2px 5px 30px rgba(0,0,0,.1); color: #fff; }
 
 .main-area:after{ content:''; position: absolute; top: 0; bottom: 0;left: 0; right: 0; z-index: -1;  
-	opacity: .7; background: linear-gradient(-9deg, #ba2f87 0%, #6a82fb 40%, #fc5c7d 100%); }
+	opacity: .7; background: linear-gradient(-9deg, #D2FBD1 0%, #6a82fb 40%, #D2FBD1 100%); }
 
 .main-area .desc{ margin: 20px auto; max-width: 500px; }
 	
@@ -171,7 +171,7 @@ html {
 .main-area .social-btn > li > a > i{ display: inline-block; height: 60px; width: 60px; line-height: 60px; border-radius: 60px;
 	font-size: 2.08em; margin: 0 10px; }
 
-.main-area .social-btn > li > a > i:hover{ background: #fff!important; }	
+.main-area .social-btn > li > a > i:hover{ background: #6a82fb!important; }	
 	
 .main-area .social-btn > li > a > i[class*="facebook"]{ background: #3b5998; }
 .main-area .social-btn > li > a > i[class*="twitter"]{ background: #1da1f2; }
