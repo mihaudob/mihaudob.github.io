@@ -1,0 +1,31 @@
+# robots.txt for mihaudob.github.io
+# This file helps control crawler behavior
+
+User-agent: *
+Allow: /
+Disallow: /assets/docs/
+
+# Prevent email harvesting bots
+User-agent: EmailCollector
+Disallow: /
+
+User-agent: EmailSiphon
+Disallow: /
+
+User-agent: EmailWolf
+Disallow: /
+
+User-agent: ExtractorPro
+Disallow: /
+
+User-agent: CherryPicker
+Disallow: /
+
+User-agent: WebBandit
+Disallow: /
+
+# Crawl delay to prevent aggressive scraping
+Crawl-delay: 10
+
+# Sitemap (optional - uncomment if you create one)
+# Sitemap: https://mihaudob.github.io/sitemap.xml
