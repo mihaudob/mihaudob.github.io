@@ -44,11 +44,6 @@
       - #THEME TOGGLE
     -->
 
-      <button class="theme-toggle-btn" data-theme-toggle>
-        <ion-icon name="moon-outline" class="moon"></ion-icon>
-        <ion-icon name="sunny-outline" class="sun"></ion-icon>
-      </button>
-
       <!--
       - #SIDEBAR
     -->
@@ -59,7 +54,7 @@
 
           <figure class="avatar-box">
             <img src="./assets/images/face.jpg" alt="Michał Dobiecki"
-              width="80">
+              width="80" height="86">
           </figure>
 
           <div class="info-content">
@@ -85,7 +80,7 @@
           </div>
 
           <button class="info_more-btn" data-sidebar-btn>
-            <span>Show Contacts</span>
+            <span>More</span>
 
             <ion-icon name="chevron-down"></ion-icon>
           </button>
@@ -153,12 +148,21 @@
               <button class="navbar-link" data-nav-link>Tech Stack</button>
             </li>
 
+            <!-- Resume nav temporarily disabled
             <li class="navbar-item">
               <button class="navbar-link" data-nav-link>Resume</button>
             </li>
+            -->
 
             <li class="navbar-item">
               <button class="navbar-link" data-nav-link>Contact</button>
+            </li>
+
+            <li class="navbar-item navbar-theme-toggle">
+              <button class="theme-toggle-btn" data-theme-toggle>
+                <ion-icon name="moon-outline" class="moon"></ion-icon>
+                <ion-icon name="sunny-outline" class="sun"></ion-icon>
+              </button>
             </li>
 
           </ul>
@@ -341,27 +345,27 @@
             <ul class="clients-list has-scrollbar">
 
               <li class="clients-item">
-                <img src="./assets/images/companies/mindbox.svg" alt="Mindbox" class="company-logo">
+                <img src="./assets/images/companies/mindbox.svg" alt="Mindbox" class="company-logo" width="60" height="60">
               </li>
               
               <li class="clients-item">
-                <img src="./assets/images/companies/hsbc.svg" alt="HSBC" class="company-logo">
+                <img src="./assets/images/companies/hsbc.svg" alt="HSBC" class="company-logo" width="60" height="60">
               </li>
               
               <li class="clients-item">
-                <img src="./assets/images/companies/wpengine.svg" alt="WP Engine" class="company-logo">
+                <img src="./assets/images/companies/wpengine.svg" alt="WP Engine" class="company-logo" width="60" height="60">
               </li>
               
               <li class="clients-item">
-                <img src="./assets/images/companies/cisco.svg" alt="Cisco" class="company-logo">
+                <img src="./assets/images/companies/cisco.svg" alt="Cisco" class="company-logo" width="60" height="60">
               </li>
 
               <li class="clients-item">
-                <img src="./assets/images/companies/agh.svg" alt="AGH University" class="company-logo">
+                <img src="./assets/images/companies/agh.svg" alt="AGH University" class="company-logo" width="60" height="60">
               </li>
 
               <li class="clients-item">
-                <img src="./assets/images/companies/sfbcc.svg" alt="SFBCC" class="company-logo">
+                <img src="./assets/images/companies/sfbcc.svg" alt="SFBCC" class="company-logo" width="60" height="60">
               </li>
 
             </ul>
@@ -372,8 +376,8 @@
         </article>
 
         <!--
-        - #RESUME
-      -->
+        - #RESUME - temporarily disabled
+
 
         <article class="resume" data-page="resume">
 
@@ -652,6 +656,7 @@
           </section>
 
         </article>
+        -->
 
         <!-- Blog section temporarily disabled
         <article class="blog" data-page="blog">
@@ -684,7 +689,7 @@
                   <figure class="blog-banner-box">
                     <img src="./assets/images/blog-1.jpg"
                       alt="Building Resilient Kubernetes Clusters"
-                      loading="lazy">
+                      width="250" height="200" loading="lazy">
                   </figure>
 
                   <div class="blog-content">
@@ -720,7 +725,7 @@
 
                   <figure class="blog-banner-box">
                     <img src="./assets/images/blog-2.jpg"
-                      alt="Infrastructure as Code" loading="lazy">
+                      alt="Infrastructure as Code" width="250" height="200" loading="lazy">
                   </figure>
 
                   <div class="blog-content">
@@ -756,7 +761,7 @@
 
                   <figure class="blog-banner-box">
                     <img src="./assets/images/blog-3.jpg"
-                      alt="Python Automation" loading="lazy">
+                      alt="Python Automation" width="250" height="200" loading="lazy">
                   </figure>
 
                   <div class="blog-content">
@@ -792,7 +797,7 @@
 
                   <figure class="blog-banner-box">
                     <img src="./assets/images/blog-4.jpg"
-                      alt="CI/CD Pipeline Best Practices" loading="lazy">
+                      alt="CI/CD Pipeline Best Practices" width="250" height="200" loading="lazy">
                   </figure>
 
                   <div class="blog-content">
@@ -828,7 +833,7 @@
 
                   <figure class="blog-banner-box">
                     <img src="./assets/images/blog-5.jpg"
-                      alt="Docker Container Optimization" loading="lazy">
+                      alt="Docker Container Optimization" width="250" height="200" loading="lazy">
                   </figure>
 
                   <div class="blog-content">
@@ -864,7 +869,7 @@
 
                   <figure class="blog-banner-box">
                     <img src="./assets/images/blog-6.jpg"
-                      alt="Cloud Cost Optimization" loading="lazy">
+                      alt="Cloud Cost Optimization" width="250" height="200" loading="lazy">
                   </figure>
 
                   <div class="blog-content">
@@ -921,39 +926,39 @@
               </h3>
               <div class="skill-badges">
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/kubernetes.svg" alt="Kubernetes" class="tech-icon">
+                  <img src="./assets/images/tech/kubernetes.svg" alt="Kubernetes" class="tech-icon" width="20" height="20">
                   Kubernetes
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/docker.svg" alt="Docker" class="tech-icon">
+                  <img src="./assets/images/tech/docker.svg" alt="Docker" class="tech-icon" width="20" height="20">
                   Docker
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/python.svg" alt="Python" class="tech-icon">
+                  <img src="./assets/images/tech/python.svg" alt="Python" class="tech-icon" width="20" height="20">
                   Python
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/linux.svg" alt="Linux" class="tech-icon">
+                  <img src="./assets/images/tech/linux.svg" alt="Linux" class="tech-icon" width="20" height="20">
                   Linux
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/bash.svg" alt="Bash" class="tech-icon">
+                  <img src="./assets/images/tech/bash.svg" alt="Bash" class="tech-icon" width="20" height="20">
                   Bash
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/terraform.svg" alt="Terraform" class="tech-icon">
+                  <img src="./assets/images/tech/terraform.svg" alt="Terraform" class="tech-icon" width="20" height="20">
                   Terraform
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/git.svg" alt="Git" class="tech-icon">
+                  <img src="./assets/images/tech/git.svg" alt="Git" class="tech-icon" width="20" height="20">
                   Git
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/aws.svg" alt="AWS" class="tech-icon">
+                  <img src="./assets/images/tech/aws.svg" alt="AWS" class="tech-icon" width="20" height="20">
                   AWS
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/gcp.svg" alt="Google Cloud Platform" class="tech-icon">
+                  <img src="./assets/images/tech/gcp.svg" alt="Google Cloud Platform" class="tech-icon" width="20" height="20">
                   Google Cloud Platform
                 </span>
 
@@ -967,31 +972,31 @@
               </h3>
               <div class="skill-badges">
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/go.svg" alt="Go" class="tech-icon">
+                  <img src="./assets/images/tech/go.svg" alt="Go" class="tech-icon" width="20" height="20">
                   Go
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/ai.svg" alt="AI & Orchestration" class="tech-icon">
+                  <img src="./assets/images/tech/ai.svg" alt="AI & Orchestration" class="tech-icon" width="20" height="20">
                   AI & Orchestration
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/azure.svg" alt="Microsoft Azure" class="tech-icon">
+                  <img src="./assets/images/tech/azure.svg" alt="Microsoft Azure" class="tech-icon" width="20" height="20">
                   Microsoft Azure
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/ansible.svg" alt="Ansible" class="tech-icon">
+                  <img src="./assets/images/tech/ansible.svg" alt="Ansible" class="tech-icon" width="20" height="20">
                   Ansible
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/jenkins.svg" alt="Jenkins" class="tech-icon">
+                  <img src="./assets/images/tech/jenkins.svg" alt="Jenkins" class="tech-icon" width="20" height="20">
                   Jenkins
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/helm.svg" alt="Helm" class="tech-icon">
+                  <img src="./assets/images/tech/helm.svg" alt="Helm" class="tech-icon" width="20" height="20">
                   Helm
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/networking.svg" alt="Networking" class="tech-icon">
+                  <img src="./assets/images/tech/networking.svg" alt="Networking" class="tech-icon" width="20" height="20">
                   Networking
                 </span>
               </div>
@@ -1004,31 +1009,31 @@
               <div class="skill-badges">
                 <!-- <span class="skill-badge">Pulumi</span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/githubactions.svg" alt="GitHub Actions" class="tech-icon">
+                  <img src="./assets/images/tech/githubactions.svg" alt="GitHub Actions" class="tech-icon" width="20" height="20">
                   GitHub Actions
                 </span> -->
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/prometheus.svg" alt="Prometheus" class="tech-icon">
+                  <img src="./assets/images/tech/prometheus.svg" alt="Prometheus" class="tech-icon" width="20" height="20">
                   Prometheus
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/grafana.svg" alt="Grafana" class="tech-icon">
+                  <img src="./assets/images/tech/grafana.svg" alt="Grafana" class="tech-icon" width="20" height="20">
                   Grafana
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/gitlab.svg" alt="GitLab CI" class="tech-icon">
+                  <img src="./assets/images/tech/gitlab.svg" alt="GitLab CI" class="tech-icon" width="20" height="20">
                   GitLab CI
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/datadog.svg" alt="Datadog" class="tech-icon">
+                  <img src="./assets/images/tech/datadog.svg" alt="Datadog" class="tech-icon" width="20" height="20">
                   Datadog
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/elasticsearch.svg" alt="ELK Stack" class="tech-icon">
+                  <img src="./assets/images/tech/elasticsearch.svg" alt="ELK Stack" class="tech-icon" width="20" height="20">
                   ELK Stack
                 </span>
                 <span class="skill-badge">
-                  <img src="./assets/images/tech/cisconso.svg" alt="Cisco NSO" class="tech-icon">
+                  <img src="./assets/images/tech/cisconso.svg" alt="Cisco NSO" class="tech-icon" width="20" height="20">
                   Cisco NSO
                 </span>
               </div>
@@ -1185,7 +1190,7 @@
             <figure>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d162771.8938076449!2d19.79837989003759!3d50.06143163415729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471644c0354e18d1%3A0xb46bb6b576478abf!2sKrak%C3%B3w%2C%20Poland!5e0!3m2!1sen!2spl!4v1647608789441!5m2!1sen!2spl"
-                width="400" height="300" loading="lazy"></iframe>
+                loading="lazy"></iframe>
             </figure>
           </section>
 
